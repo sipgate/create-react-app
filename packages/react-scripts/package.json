@@ -1,14 +1,14 @@
 {
-  "name": "react-scripts",
+  "name": "@sipgate/react-scripts",
   "version": "1.1.0",
   "description": "Configuration and scripts for Create React App.",
-  "repository": "facebookincubator/create-react-app",
+  "repository": "sipgate/create-react-app",
   "license": "MIT",
   "engines": {
     "node": ">=6"
   },
   "bugs": {
-    "url": "https://github.com/facebookincubator/create-react-app/issues"
+    "url": "https://github.com/sipgate/create-react-app/issues"
   },
   "files": [
     "bin",
@@ -65,6 +65,7 @@
     "whatwg-fetch": "2.0.3"
   },
   "devDependencies": {
+    "@sipgate/should-use-babel-loader": "^0.0.1",
     "react": "^16.0.0",
     "react-dom": "^16.0.0"
   },
