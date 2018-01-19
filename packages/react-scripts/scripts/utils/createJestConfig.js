@@ -40,7 +40,7 @@ module.exports = (resolve, rootDir, isEjecting) => {
       ),
     },
     transformIgnorePatterns: [
-      '[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$',
+      '[/\\\\]node_modules[/\\\\](?!@sipgate[/\\\\]ui).+\\.(js|jsx|mjs)$', // @sipgate custom regex
       '^.+\\.module\\.css$',
     ],
     moduleNameMapper: {

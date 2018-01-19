@@ -20,6 +20,10 @@ const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const getClientEnvironment = require('./env');
 const paths = require('./paths');
 
+// --- @sipgate custom start
+const shouldUseBabelLoader = require('@sipgate/should-use-babel-loader');
+// --- @sipgate custom end
+
 // Webpack uses `publicPath` to determine where the app is being served from.
 // In development, we always serve from the root. This makes config easier.
 const publicPath = '/';
@@ -128,6 +132,9 @@ module.exports = {
       // Make sure your source files are compiled, as they will not be processed in any way.
       new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson]),
     ],
+    // --- @sipgate custom start
+    mainFields: ['browser', 'module', 'main', 'esnext'],
+    // --- @sipgate custom end
   },
   module: {
     strictExportPresence: true,
@@ -178,7 +185,13 @@ module.exports = {
           // The preset includes JSX, Flow, and some ESnext features.
           {
             test: /\.(js|jsx|mjs)$/,
-            include: paths.appSrc,
+            // --- @sipgate custom start
+            include: shouldUseBabelLoader(
+              paths.appPath,
+              paths.appSrc,
+              paths.appNodeModules
+            ),
+            // --- @sipgate custom end
             use: [
               // This loader parallelizes code compilation, it is optional but
               // improves compile time on larger projects
