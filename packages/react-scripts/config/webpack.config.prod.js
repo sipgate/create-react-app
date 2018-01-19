@@ -179,8 +179,8 @@ module.exports = {
             test: /\.(js|jsx|mjs)$/,
             include: shouldUseBabelLoader(
               paths.appPath,
-              paths.appSrc,
-              paths.appNodeModules
+              [paths.appSrc],
+              [paths.appNodeModules]
             ),
             loader: require.resolve('babel-loader'),
             options: {

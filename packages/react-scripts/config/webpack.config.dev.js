@@ -173,8 +173,8 @@ module.exports = {
             // --- @sipgate custom start
             include: shouldUseBabelLoader(
               paths.appPath,
-              paths.appSrc,
-              paths.appNodeModules
+              [paths.appSrc],
+              [paths.appNodeModules]
             ),
             // --- @sipgate custom end
             loader: require.resolve('babel-loader'),
